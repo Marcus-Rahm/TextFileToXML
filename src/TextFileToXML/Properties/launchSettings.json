@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TextFileToXML": {
+      "commandName": "Project",
+      "commandLineArgs": "-f ../../../../../test/data/testData.txt"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7363BF6B-EE18-440A-8F1E-4AB55C954621}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6FB19E39-716D-4AF5-80AF-238B0D6214D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{654DFE21-A923-4E9E-A9F7-FAEE45D3A9C7}"
+	ProjectSection(SolutionItems) = preProject
+		test\data\testData.txt = test\data\testData.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextFileToXML", "src\TextFileToXML\TextFileToXML.csproj", "{F9AF2354-8925-4E0F-A2D2-AE23F8072C81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFileToXML.Test", "TextFileToXML.Test\TextFileToXML.Test.csproj", "{F6328792-84FC-4267-AE73-6C4AC179D582}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9AF2354-8925-4E0F-A2D2-AE23F8072C81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9AF2354-8925-4E0F-A2D2-AE23F8072C81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9AF2354-8925-4E0F-A2D2-AE23F8072C81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9AF2354-8925-4E0F-A2D2-AE23F8072C81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6328792-84FC-4267-AE73-6C4AC179D582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6328792-84FC-4267-AE73-6C4AC179D582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6328792-84FC-4267-AE73-6C4AC179D582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6328792-84FC-4267-AE73-6C4AC179D582}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{654DFE21-A923-4E9E-A9F7-FAEE45D3A9C7} = {6FB19E39-716D-4AF5-80AF-238B0D6214D6}
+		{F9AF2354-8925-4E0F-A2D2-AE23F8072C81} = {7363BF6B-EE18-440A-8F1E-4AB55C954621}
+		{F6328792-84FC-4267-AE73-6C4AC179D582} = {6FB19E39-716D-4AF5-80AF-238B0D6214D6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABC0CC0E-E088-4889-BFF1-14C73707DABB}
+	EndGlobalSection
+EndGlobal
