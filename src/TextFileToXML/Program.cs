@@ -25,32 +25,47 @@ namespace TextFileToXML
                 {
                     Console.WriteLine(e.Message + "\nStopping program");
                 }
-            }
 
-            Console.WriteLine("Save to file? (y/n)");
-            string response = Console.ReadLine();
-            switch (response.ToLower())
-            {
-                case "y":
-                    if(!string.IsNullOrEmpty(result))
-                    {
-                        File.WriteAllText("Output.xml", result);
-                    }
-                    else
-                    {
-                        Console.WriteLine("No result string, ignoring save to file");
-                    }
-                    break;
+                Console.WriteLine("Save to file? (y/n)");
+                string response = Console.ReadLine();
+                switch (response.ToLower())
+                {
+                    case "y":
+                        if (!string.IsNullOrEmpty(result))
+                        {
+                            Console.WriteLine("Saving to Output.xml");
+                            File.WriteAllText("Output.xml", result);
+                        }
+                        else
+                        {
+                            Console.WriteLine("No result string, ignoring save to file");
+                        }
+                        break;
+                }
             }
         }
 
+        /// <summary>
+        /// Reads file path from arguments
+        /// If no argument was provided it used built in test data.
+        /// </summary>
+        /// <param name="args">Progam arguments</param>
+        /// <returns>StreanReader containing data</returns>
         static StreamReader GetData(string[] args)
         {
-            if (args.Length == 2)
+            if (args.Length >= 2)
             {
                 if (args[0].ToLower() == "-f")
                 {
-                    return new StreamReader(args[1]);
+                    if(File.Exists(args[1]))
+                    {
+                        return new StreamReader(args[1]);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"File {args[1]} not found");
+                        return null;
+                    }
                 }
                 else
                 {

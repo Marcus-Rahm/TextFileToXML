@@ -22,11 +22,13 @@ namespace TextFileToXML.Infrastructure
             string line;
             while ((line = stream.ReadLine()) != null)
             {
+                //Process line data and add the data into people object
                 ProcessLine(line, ref people);
             }
 
             using (var stringwriter = new StringWriter())
             {
+                //Serialize People object into xml format
                 XmlSerializer serializer = new XmlSerializer(people.GetType());
                 serializer.Serialize(stringwriter, people);
                 return stringwriter.ToString();
@@ -34,10 +36,10 @@ namespace TextFileToXML.Infrastructure
         }
 
         /// <summary>
-        /// Reads stream line by line and creates up a XML representation of the data.
+        /// Reads stream line by line and creates a <see cref="People"/> object representation of the object.
         /// </summary>
         /// <param name="stream">Stream containing text data which will become <see cref="Person"/> objects</param>
-        /// <returns>XML representation of stream data</returns>
+        /// <returns>A <see cref="People"/> representation of stream data</returns>
         public People ParseToPersonList(StreamReader stream)
         {
             People people = new People();
@@ -45,6 +47,7 @@ namespace TextFileToXML.Infrastructure
             string line;
             while ((line = stream.ReadLine()) != null)
             {
+                //Process line data and add the data into people object
                 ProcessLine(line, ref people);
             }
 
@@ -59,6 +62,7 @@ namespace TextFileToXML.Infrastructure
         /// <param name="people">List of all people objects</param>
         private void ProcessLine(string line, ref People people)
         {
+            //Handle data based on first data type
             string[] lineData = line.Split('|');
             switch (lineData[0].ToLower())
             {
@@ -131,6 +135,7 @@ namespace TextFileToXML.Infrastructure
                 var currentPerson = people.Persons.LastOrDefault();
                 if(currentPerson != null)
                 {
+                    // If we have created a family member, then add address to that object instead of last person object
                     if (currentPerson.Family.Any())
                     {
                         currentPerson.Family.LastOrDefault().Address = address;
@@ -167,6 +172,7 @@ namespace TextFileToXML.Infrastructure
                 var currentPerson = people.Persons.LastOrDefault();
                 if (currentPerson != null)
                 {
+                    // If we have created a family member, then add address to that object instead of last person object
                     if (currentPerson.Family.Any())
                     {
                         currentPerson.Family.LastOrDefault().Phone = phone;
